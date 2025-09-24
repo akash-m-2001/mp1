@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
-    </head>
-    <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment Website</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header id="navbar">
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#carousel">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sections -->
+<section id="home" class="full-section bg-image">
+  <h1 class="fade-in">Hi, I’m Akash M.</h1>
+  <p class="fade-in delay-1">Master’s Student | Aspiring Software Developer</p>
+  <a href="#carousel" class="btn fade-in delay-2">View Projects</a>
+</section>
+  
+  <section id="carousel" class="full-section">
+    <div class="carousel">
+      <div class="slide active"><img src="assets/image1.png" alt="Slide 1"></div>
+      <div class="slide"><img src="assets/image2.png" alt="Slide 2"></div>
+      <button class="prev">❮</button>
+      <button class="next">❯</button>
+    </div>
+  </section>
+
+  <section id="about" class="full-section multi-column">
+    <div>
+      <h2>Technical Skills</h2>
+      <p>JAVA, C, HTML, CSS, JS</p>
+    </div>
+    <div>
+      <h2>Professional Experience</h2>
+      <p>Business analyst Internship at Presidio</p>
+    </div>
+    <div>
+      <h2>Education Qualification</h2>
+      <p>B.E. CSE in SKCET(2019-2023)<br>MCS CSE UIUC (2025-2026)
+      </p>
+    </div>
+  </section>
+
+  <section id="video" class="full-section">
+    <video controls width="640">
+      <source src="assets/video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <section id="contact" class="full-section">
+    <button id="openModal">Contact Info</button>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Email:akashlalgudi2001@gmail.com<br>Github:akash-m-2001</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 My Portfolio</p>
+    <div class="social-icons">
+      <span class="icon">F</span>
+      <span class="icon">T</span>
+      <span class="icon">L</span>
+    </div>
+  </footer>
+</body>
 </html>

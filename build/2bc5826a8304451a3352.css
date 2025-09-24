@@ -1,0 +1,269 @@
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background: url("../assets/bg.jpg") no-repeat center center/cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  margin: 0;
+}
+header nav ul li {
+  margin: 0 15px;
+}
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  transition: font-size 0.3s, color 0.3s;
+}
+header nav ul li a.active {
+  color: yellow;
+  font-weight: bold;
+}
+header.small nav ul li a {
+  font-size: 14px;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+#home h1, #home p, #home .btn {
+  display: block;
+  margin: 10px 0;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+}
+#home p {
+  animation-delay: 0.5s;
+}
+#home .btn {
+  animation-delay: 1s;
+}
+#home h1 {
+  font-size: 50px;
+}
+#home p {
+  font-size: 24px;
+}
+#home .btn {
+  padding: 10px 20px;
+  background: yellow;
+  color: #222;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+#home .btn:hover {
+  background: orange;
+}
+
+#projects h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: yellow;
+}
+#projects .projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+#projects .project-card {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: left;
+  transition: transform 0.3s, background 0.3s;
+}
+#projects .project-card:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 0, 0, 0.7);
+}
+#projects .project-card h3 {
+  margin-top: 0;
+  color: yellow;
+  font-size: 24px;
+}
+#projects .project-card .project-thumb {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+#projects .project-card p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+#projects .project-card .btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: yellow;
+  color: #222;
+  text-decoration: none;
+  border-radius: 5px;
+}
+#projects .project-card .btn:hover {
+  background: orange;
+}
+@media (max-width: 768px) {
+  #projects #projects .projects-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  #projects .project-card {
+    width: 90%;
+  }
+}
+#projects .full-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  position: relative;
+}
+#projects .multi-column {
+  display: flex;
+  gap: 20px;
+}
+#projects .multi-column div {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 8px;
+}
+#projects .carousel {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+}
+#projects .carousel .slide {
+  display: none;
+}
+#projects .carousel .slide.active {
+  display: block;
+}
+#projects .carousel .slide img {
+  width: 100%;
+  border-radius: 8px;
+}
+#projects .carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+#projects .carousel button.prev {
+  left: 0;
+}
+#projects .carousel button.next {
+  right: 0;
+}
+#projects .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#projects .modal .modal-content {
+  background: #fff;
+  color: black;
+  padding: 20px;
+  border-radius: 8px;
+  animation: fadeIn 0.5s;
+}
+#projects .modal .close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+#projects footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+#projects footer .social-icons {
+  margin-top: 10px;
+}
+#projects footer .social-icons .icon {
+  margin: 0 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+#projects footer .social-icons .icon:hover {
+  color: #00aced;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (max-width: 1024px) {
+  #projects .multi-column {
+    flex-direction: column;
+  }
+  #projects .carousel {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
