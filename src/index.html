@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assignment Website</title>
+  <title>Akash M Portfolio</title>
   <link rel="stylesheet" href="css/main.css">
-  <script src="js/main.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-pVn5X..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
   <!-- Navbar -->
@@ -13,7 +14,7 @@
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#carousel">Projects</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#video">Video</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -21,22 +22,39 @@
     </nav>
   </header>
 
-  <!-- Sections -->
-<section id="home" class="full-section bg-image">
-  <h1 class="fade-in">Hi, I’m Akash M.</h1>
-  <p class="fade-in delay-1">Master’s Student | Aspiring Software Developer</p>
-  <a href="#carousel" class="btn fade-in delay-2">View Projects</a>
-</section>
-  
-  <section id="carousel" class="full-section">
-    <div class="carousel">
-      <div class="slide active"><img src="assets/image1.png" alt="Slide 1"></div>
-      <div class="slide"><img src="assets/image2.png" alt="Slide 2"></div>
+  <!-- Hero Section -->
+  <section id="home" class="full-section">
+    <h1>Hi, I’m Akash M.</h1>
+    <p>Master’s Student | Aspiring Software Developer</p>
+    <a href="#projects" class="btn">View Projects</a>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="full-section">
+    <h2>My Projects</h2>
+    <div class="projects-carousel">
+      <!-- Webpack will import images dynamically -->
+      <div class="slide active"><img class="project-img" src="assets/image1.png" alt="Project 1"></div>
+      <div class="slide"><img class="project-img" src="assets/image2.png" alt="Project 2"></div>
+      <div class="slide"><img class="project-img" src="assets/image3.png" alt="Project 3"></div>
+      <div class="slide"><img class="project-img" src="assets/image4.png" alt="Project 4"></div>
+      <div class="slide"><img class="project-img" src="assets/image5.png" alt="Project 1"></div>
+      <div class="slide"><img class="project-img" src="assets/image6.png" alt="Project 2"></div>
+      <div class="slide"><img class="project-img" src="assets/image7.png" alt="Project 2"></div>
+
+
       <button class="prev">❮</button>
       <button class="next">❯</button>
     </div>
   </section>
 
+  <!-- Modal for full-size project image -->
+  <div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-img" alt="Full-size Project">
+  </div>
+
+  <!-- About Section -->
   <section id="about" class="full-section multi-column">
     <div>
       <h2>Technical Skills</h2>
@@ -44,39 +62,49 @@
     </div>
     <div>
       <h2>Professional Experience</h2>
-      <p>Business analyst Internship at Presidio</p>
+      <p>Business Analyst Internship at Presidio</p>
     </div>
     <div>
-      <h2>Education Qualification</h2>
-      <p>B.E. CSE in SKCET(2019-2023)<br>MCS CSE UIUC (2025-2026)
-      </p>
+      <h2>Education</h2>
+      <p>B.E. CSE in SKCET (2019-2023)<br>MCS CSE UIUC (2025-2026)</p>
     </div>
   </section>
 
-  <section id="video" class="full-section">
-    <video controls width="640">
+  <!-- Video Section -->
+  <section id="video-section" class="full-section video-section">
+  <h2 class="section-heading">Watch Our Demo Video</h2>
+  <p class="section-subtext">Here’s an overview of our project in action.</p>
+  <div class="video-container">
+    <video controls>
       <source src="assets/video.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="full-section">
-    <button id="openModal">Contact Info</button>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Email:akashlalgudi2001@gmail.com<br>Github:akash-m-2001</p>
-      </div>
+
+<section id="contact" class="full-section">
+  <button id="openModal">Contact Me</button>
+
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Contact Me</h2>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <p class="form-response"></p>
     </div>
-  </section>
-
+  </div>
+</section>
   <!-- Footer -->
   <footer>
-    <p>© 2025 My Portfolio</p>
     <div class="social-icons">
-      <span class="icon">F</span>
-      <span class="icon">T</span>
-      <span class="icon">L</span>
+      <a href="https://www.linkedin.com/in/akash-m-3391251a3/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/akash-m-2001" target="_blank"><i class="fab fa-github"></i></a>
     </div>
   </footer>
 </body>

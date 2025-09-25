@@ -8,8 +8,6 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   min-height: 100vh;
-  background: url("../assets/bg.jpg") no-repeat center center/cover;
-  background-attachment: fixed;
   color: #fff;
 }
 
@@ -18,7 +16,6 @@ header {
   top: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
-  transition: all 0.3s ease;
   z-index: 1000;
 }
 header nav ul {
@@ -36,11 +33,14 @@ header nav ul li a {
   color: #fff;
   text-decoration: none;
   font-size: 20px;
-  transition: font-size 0.3s, color 0.3s;
+  transition: color 0.3s, font-size 0.3s;
 }
 header nav ul li a.active {
   color: yellow;
   font-weight: bold;
+}
+header nav ul li a:hover {
+  color: yellow;
 }
 header.small nav ul li a {
   font-size: 14px;
@@ -49,104 +49,35 @@ header.small nav ul li a {
 #home {
   display: flex;
   flex-direction: column;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   min-height: 100vh;
+  background: url("../assets/bg.jpg") no-repeat center center/cover;
+  background-attachment: fixed;
 }
 #home h1, #home p, #home .btn {
-  display: block;
-  margin: 10px 0;
   opacity: 0;
   animation: fadeInUp 1s forwards;
+  margin: 10px 0;
 }
 #home p {
   animation-delay: 0.5s;
 }
 #home .btn {
   animation-delay: 1s;
-}
-#home h1 {
-  font-size: 50px;
-}
-#home p {
-  font-size: 24px;
-}
-#home .btn {
   padding: 10px 20px;
   background: yellow;
   color: #222;
   text-decoration: none;
   border-radius: 5px;
-  margin-top: 20px;
-  transition: background 0.3s;
 }
 #home .btn:hover {
   background: orange;
 }
 
-#projects h2 {
-  font-size: 36px;
-  margin-bottom: 30px;
-  text-align: center;
-  color: yellow;
-}
-#projects .projects-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-#projects .project-card {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: left;
-  transition: transform 0.3s, background 0.3s;
-}
-#projects .project-card:hover {
-  transform: translateY(-5px);
-  background: rgba(0, 0, 0, 0.7);
-}
-#projects .project-card h3 {
-  margin-top: 0;
-  color: yellow;
-  font-size: 24px;
-}
-#projects .project-card .project-thumb {
-  width: 100px;
-  height: auto;
-  display: block;
-  margin: 10px 0;
-  border-radius: 5px;
-}
-#projects .project-card p {
-  margin: 8px 0;
-  font-size: 14px;
-}
-#projects .project-card .btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 6px 12px;
-  background: yellow;
-  color: #222;
-  text-decoration: none;
-  border-radius: 5px;
-}
-#projects .project-card .btn:hover {
-  background: orange;
-}
-@media (max-width: 768px) {
-  #projects #projects .projects-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  #projects .project-card {
-    width: 90%;
-  }
-}
-#projects .full-section {
+.full-section {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -155,88 +86,155 @@ header.small nav ul li a {
   padding: 50px;
   position: relative;
 }
-#projects .multi-column {
+
+.multi-column {
   display: flex;
   gap: 20px;
 }
-#projects .multi-column div {
+.multi-column div {
   flex: 1;
   background: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 8px;
 }
-#projects .carousel {
+
+#projects {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#projects h2 {
+  font-size: 36px;
+  color: yellow;
+  margin-bottom: 30px;
+}
+#projects .projects-carousel {
   position: relative;
   width: 80%;
-  max-width: 800px;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
 }
-#projects .carousel .slide {
+#projects .projects-carousel .slide {
   display: none;
+  width: 100%;
+  transition: opacity 0.5s ease;
 }
-#projects .carousel .slide.active {
+#projects .projects-carousel .slide.active {
   display: block;
+  animation: fadeIn 0.5s;
 }
-#projects .carousel .slide img {
+#projects .projects-carousel .slide img {
   width: 100%;
   border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
 }
-#projects .carousel button {
+#projects .projects-carousel button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  color: yellow;
   border: none;
   padding: 10px;
+  font-size: 24px;
   cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
 }
-#projects .carousel button.prev {
-  left: 0;
+#projects .projects-carousel button.prev {
+  left: 10px;
 }
-#projects .carousel button.next {
-  right: 0;
+#projects .projects-carousel button.next {
+  right: 10px;
 }
-#projects .modal {
+
+/* Full-screen project modal */
+#imgModal {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2100;
 }
-#projects .modal .modal-content {
-  background: #fff;
-  color: black;
+#imgModal .modal-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  display: block;
+  margin: auto;
+}
+#imgModal .close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+#myModal .modal-content {
+  background: #222;
+  color: #fff;
+  max-width: 400px;
+  max-height: 300px;
   padding: 20px;
   border-radius: 8px;
-  animation: fadeIn 0.5s;
+  text-align: center;
+  margin: auto;
 }
-#projects .modal .close {
-  float: right;
+#myModal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  color: #fff;
   cursor: pointer;
-  font-size: 20px;
 }
-#projects footer {
+
+footer {
   background: #222;
   color: #fff;
   text-align: center;
   padding: 20px;
 }
-#projects footer .social-icons {
+footer .social-icons {
   margin-top: 10px;
 }
-#projects footer .social-icons .icon {
+footer .social-icons a {
   margin: 0 10px;
-  cursor: pointer;
-  transition: color 0.3s;
+  color: #fff;
+  font-size: 24px;
+  transition: transform 0.3s, color 0.3s;
 }
-#projects footer .social-icons .icon:hover {
+footer .social-icons a:hover {
+  transform: scale(1.2);
   color: #00aced;
 }
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -250,7 +248,7 @@ header.small nav ul li a {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
@@ -258,10 +256,10 @@ header.small nav ul li a {
   }
 }
 @media (max-width: 1024px) {
-  #projects .multi-column {
+  .multi-column {
     flex-direction: column;
   }
-  #projects .carousel {
+  .projects-carousel {
     width: 100%;
   }
 }
